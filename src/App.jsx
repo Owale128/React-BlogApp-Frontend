@@ -52,6 +52,21 @@ const BlogPosts = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      setBlogPosts(blogPosts.filter(post => post._id !== id));
+    } catch (error) {
+      console.error('Error deleting blog post:', error);
+    }
+  };
+
   return (
     <div>
       <h1>Blog Posts</h1>
@@ -75,6 +90,7 @@ const BlogPosts = () => {
         <div key={i}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+          <button onClick={() => handleDelete(post._id)}>Delete</button>
         </div>
       ))}
     </div>
