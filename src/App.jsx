@@ -71,8 +71,8 @@ const BlogPosts = () => {
         ></textarea>
         <button type="submit">Add Post</button>
       </form>
-      {blogPosts.map((post) => (
-        <div key={post._id}>
+      {blogPosts.map((post, i ) => (
+        <div key={i}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
         </div>
