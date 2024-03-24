@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'
 
 const BlogPosts = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -67,29 +68,35 @@ const BlogPosts = () => {
   };
 
   return (
-    <div>
+    <div className='wrapper'>
       <h1>Blog Posts</h1>
       <form onSubmit={handleSubmit}>
+      <div className='formContainer'>
         <input
+        className='title'
           type="text"
           name="title"
           placeholder="Enter title"
           value={newPost.title}
           onChange={handleInputChange}
         />
+        <br></br>
         <textarea
+        className='textArea'
           name="content"
           placeholder="Enter content"
           value={newPost.content}
           onChange={handleInputChange}
         ></textarea>
-        <button type="submit">Add Post</button>
+        <button type="submit" className='addBtn'>Add Post</button>
+        </div>
+        <br></br>
       </form>
       {blogPosts.map((post, i ) => (
-        <div key={i}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-          <button onClick={() => handleDelete(post._id)}>Delete</button>
+        <div key={i} className='wrapper2'>
+          <span className='deleteBtn' onClick={() => handleDelete(post._id)}>X</span>
+          <h3 className='postTitle'>{post.title}</h3>
+          <p className='postContent'>{post.content}</p>
         </div>
       ))}
     </div>
