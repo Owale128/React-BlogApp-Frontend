@@ -41,11 +41,10 @@ const BlogPosts = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
-    
-      setBlogPosts([...blogPosts, newPost]);
-
+      const { post } = await response.json();
+  
+      setBlogPosts([...blogPosts, post]);
+  
       setNewPost({ title: '', content: '' });
     } catch (error) {
       console.error('Error creating blog post:', error);
