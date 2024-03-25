@@ -52,6 +52,25 @@ const BlogPosts = () => {
     }
   };
 
+  const handleUpdate = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editedPost),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+    } catch (error) {
+      console.error('Error updating blog post:', error);
+    }
+  };
+
+
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
