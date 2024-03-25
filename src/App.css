@@ -14,6 +14,15 @@ body {
     align-items: center;
 }
 
+.wrapper2 {
+    margin-top: 3rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    padding: 3rem;
+    position: relative;
+    max-width: 40rem;
+    text-align: center;
+}
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -22,12 +31,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.wrapper2 {
-    margin-top: 3rem;
-    border: 1px solid black;
-    padding: 3rem;
-    position: relative;
-}
 
 h1 {
     margin: 4rem 0 2rem 0;
@@ -56,15 +59,9 @@ h1 {
 
 .addBtn {
     border-radius: 2rem;
-    padding: 0.3rem;
-    font-size: 1.1rem;
-    
-}
-
-.addBtn {
-    border-radius: 2rem;
     padding: 0.3rem 1rem; 
     background-color: #007bff; 
+    font-size: 1.1rem;
     color: white;
     border: none;
     cursor: pointer;
@@ -98,11 +95,13 @@ h1 {
 
 .postTitle {
     font-size: 1.8rem;
-    margin: 0 3rem 0 6.5rem;
     display: inline;
+    text-decoration: underline;
     
 }
 
 .postContent {
-    font-size: 1.5rem;
+    font-size: 1.4em;
+    word-wrap: break-word;
+    margin-top: 2rem;
 }

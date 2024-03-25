@@ -4,6 +4,8 @@ import './App.css'
 const BlogPosts = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: '', content: '' });
+  const [editingPostId, setEditingPostId] = useState(null);
+  const [editedPost, setEditedPost] = useState({ title: '', content: '' });
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -64,10 +66,23 @@ const BlogPosts = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      
+
+      const updatedPost = { ...editedPost, _id: id };
+      setBlogPosts(blogPosts.map(post => post._id === id ? updatedPost : post));
+      setEditingPostId(null);
+
     } catch (error) {
       console.error('Error updating blog post:', error);
     }
+  };
+
+  const handleEdit = async (id, title, content) => {
+    setEditingPostId(id);
+    setEditedPost({ title, content });
+  };
+  const handleCancelEdit = () => {
+    setEditingPostId(null);
+    setEditedPost({ title: '', content: '' });
   };
 
 
@@ -114,7 +129,7 @@ const BlogPosts = () => {
       {blogPosts.map((post, i ) => (
         <div key={i} className='wrapper2'>
           <span className='deleteBtn' onClick={() => handleDelete(post._id)}>X</span>
-          <h3 className='postTitle'>{post.title}</h3>
+          <h4 className='postTitle'>{post.title}</h4>
           <p className='postContent'>{post.content}</p>
         </div>
       ))}
