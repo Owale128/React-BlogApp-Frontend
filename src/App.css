@@ -15,24 +15,26 @@ body {
 }
 
 .wrapper2 {
-    margin-top: 3rem;
+    margin-top: 4rem;
     border: 1px solid black;
     border-radius: 2rem;
     padding: 2rem;
     position: relative;
-    max-width: 32rem;
-    min-width: 22rem;
+    max-width: 33rem;
+    min-width: 23rem;
     text-align: center;
+    position: relative;
 }
 
 
 .wrapper2 input{
     width: 12rem;
     margin: 0 auto;
+    margin-top: 1.5rem;
 }
 
 .wrapper2 textarea {
-    max-width: 28rem;
+    max-width: 29rem;
 }
 
 .formContainer {
@@ -51,20 +53,15 @@ h1 {
 .title, .textArea {
     display: block;
     text-align: center;
-}
-
-.title {
     font-size: 1.2rem;
 }
-
 
 .textArea {
     height: 15rem;
     width: 20rem;
     border-radius: 2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.6rem;
     padding: 0.6rem;
-    font-size: 1.2rem;
 }
 
 .addBtn {
@@ -92,8 +89,6 @@ h1 {
     font-size: 1.2rem;
     position: absolute;
     transition:  0.3s ease;
-   
-   
 }
 
 .editBtn:hover {
@@ -117,20 +112,6 @@ h1 {
     color: rgb(9, 9, 129);
 }
 
-.backBtn {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 1.5rem;
-    font-size: 1.1rem;
-    transition:  0.3s ease; 
-    cursor: pointer;
-
-}
-
-.backBtn:hover {
-    font-weight: bolder;
-    background-color: rgb(212, 208, 208);
-}
 
 .deleteBtn {
     position: absolute;
@@ -148,13 +129,42 @@ h1 {
     color: rgb(255, 0, 0);
 }
 
-.postTitle {
-    font-size: 1.4rem;
-    text-decoration: underline;
-    
+.backBtn {
+    padding: 0.5rem;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    transition:  0.3s ease; 
 }
+
+.backBtn:hover {
+    font-weight: bolder;
+    background-color: rgb(212, 208, 208);
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+}
+
+.postTitle {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
 .postContent {
     font-size: 1.3em;
-    margin-top: 2.5em;
+    margin: 2.3em 0;
     word-wrap: break-word;
 }
+
+.error {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+.errorEdit {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
