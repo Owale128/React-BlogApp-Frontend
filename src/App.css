@@ -23,8 +23,16 @@ body {
     max-width: 33rem;
     min-width: 23rem;
     text-align: center;
-    position: relative;
 }
+
+.wrapper2:nth-child(odd) {
+    left: -330px;
+  }
+  
+  .wrapper2:nth-child(even) {
+    top: -130px;
+    right: -330px;
+  }
 
 
 .wrapper2 input{
@@ -41,7 +49,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 

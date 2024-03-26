@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import pingSound from '../src/soundEffect/pingSound.mp3';
 import './App.css'
 
 const BlogPosts = () => {
@@ -8,6 +9,7 @@ const BlogPosts = () => {
   const [editingPostId, setEditingPostId] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [errorMessageEdit, setErrorMessageEdit] = useState('');
+  const newPostRef = useRef(null);
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -55,9 +57,19 @@ const BlogPosts = () => {
       const { post } = await response.json();
 
       setBlogPosts([...blogPosts, post]);
-      
       setNewPost({ title: '', content: '' });
       setErrorMessage('');
+
+      setTimeout(() => {
+        if (newPostRef.current) {
+          newPostRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+
+      const audio = new Audio(pingSound);
+      audio.playbackRate = 1.4;
+      audio.play();
+
     } catch (error) {
       console.error('Error creating blog post:', error);
     }
@@ -146,8 +158,8 @@ return (
       <br></br>
     </form>
     {blogPosts.map((post, i ) => (
-      <div key={i} className='wrapper2'>
 
+      <div key={i} className='wrapper2' ref={i === blogPosts.length - 1 ? newPostRef : null}>
 <span className='deleteBtn' onClick={() => handleDelete(post._id)}>Delete</span>
         {editingPostId === post._id ? (
           <>
