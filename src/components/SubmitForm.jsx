@@ -25,11 +25,10 @@ const handleSubmit = async (newPost, setBlogPosts, blogPosts, setNewPost, setErr
         if (newPostRef.current) {
           newPostRef.current.scrollIntoView({ behavior: 'smooth' });
         }
+        const audio = new Audio(pingSound);
+        audio.play();
       }, 100);
-  
-      const audio = new Audio(pingSound);
-      audio.playbackRate = 1.8;
-      audio.play();
+
     } catch (error) {
       console.error('Error creating blog post:', error);
     }

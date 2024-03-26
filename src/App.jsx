@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import pingSound from '../src/soundEffect/pingSound.mp3';
+import pingSound from '../src/soundEffect/tapSound.mp3';
 import handleSubmit from './components/SubmitForm';
 import handleUpdate from './components/UpdatePost';
 import handleDelete from './components/DeletePost';
