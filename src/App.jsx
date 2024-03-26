@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import pingSound from '../src/soundEffect/pingSound.mp3';
+import handleSubmit from './components/SubmitForm';
+import handleUpdate from './components/UpdatePost';
+import handleDelete from './components/DeletePost';
+import fetchPosts from './components/FetchPosts';
 import './App.css'
 
 const BlogPosts = () => {
@@ -12,22 +16,7 @@ const BlogPosts = () => {
   const newPostRef = useRef(null);
 
   useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/api/blogPosts');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setBlogPosts(data);
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
-      }
-    };
-
-    fetchBlogPosts();
-
-    return () => {};
+    fetchPosts(setBlogPosts);
   }, []);
 
   const handleInputChange = (e) => {
@@ -35,73 +24,13 @@ const BlogPosts = () => {
     setNewPost({ ...newPost, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitPost = (e) => {
     e.preventDefault();
- 
-    if (newPost.title.trim() === '' || newPost.content.trim() === '') {
-      setErrorMessage('Title and content cannot be empty');
-      return; 
-    }
-
-    try {
-      const response = await fetch('http://localhost:3000/api/blogPost', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newPost),
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const { post } = await response.json();
-
-      setBlogPosts([...blogPosts, post]);
-      setNewPost({ title: '', content: '' });
-      setErrorMessage('');
-
-      setTimeout(() => {
-        if (newPostRef.current) {
-          newPostRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-
-      const audio = new Audio(pingSound);
-      audio.playbackRate = 1.4;
-      audio.play();
-
-    } catch (error) {
-      console.error('Error creating blog post:', error);
-    }
+    handleSubmit(newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, pingSound);
   };
 
-  const handleUpdate = async (id) => {
-
-    if (editedPost.title.trim() === '' || editedPost.content.trim() === '') {
-      setErrorMessageEdit('Title and content cannot be empty');
-      return;
-    }
-
-    try {
-      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(editedPost),
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const updatedPost = { ...editedPost, _id: id };
-      setBlogPosts(blogPosts.map(post => post._id === id ? updatedPost : post));
-      setEditingPostId(null);
-      setErrorMessageEdit('');
-
-    } catch (error) {
-      console.error('Error updating blog post:', error);
-    }
+  const handleUpdatePost = (id) => {
+    handleUpdate(id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit);
   };
 
   const handleEdit = async (id, title, content) => {
@@ -115,26 +44,14 @@ const BlogPosts = () => {
     setErrorMessageEdit('');
   };
 
-
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
-        method: 'DELETE',
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      
-      setBlogPosts(blogPosts.filter(post => post._id !== id));
-    } catch (error) {
-      console.error('Error deleting blog post:', error);
-    }
+  const handleDeletePost = (id) => {
+    handleDelete(id, setBlogPosts, blogPosts);
   };
 
 return (
   <div className='wrapper'>
     <h1>Blog Posts</h1>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmitPost}>
     <div className='formContainer'>
       <input
       className='title'
@@ -160,10 +77,10 @@ return (
     {blogPosts.map((post, i ) => (
 
       <div key={i} className='wrapper2' ref={i === blogPosts.length - 1 ? newPostRef : null}>
-<span className='deleteBtn' onClick={() => handleDelete(post._id)}>Delete</span>
+<span className='deleteBtn' onClick={() => handleDeletePost(post._id)}>Delete</span>
         {editingPostId === post._id ? (
           <>
-            <span className='updateBtn' onClick={() => handleUpdate(post._id)}>Update</span>
+            <span className='updateBtn' onClick={() => handleUpdatePost(post._id)}>Update</span>
           </>
         ) : (
           <span className='editBtn' onClick={() => handleEdit(post._id, post.title, post.content)}>Edit</span>

@@ -26,12 +26,12 @@ body {
 }
 
 .wrapper2:nth-child(odd) {
-    left: -330px;
+    left: -320px;
   }
   
   .wrapper2:nth-child(even) {
     top: -130px;
-    right: -330px;
+    right: -320px;
   }
 
 
@@ -155,6 +155,9 @@ h1 {
 .postTitle {
     font-size: 1.5rem;
     text-decoration: underline;
+    word-wrap: break-word;
+    margin-top: 1.5rem;
+    
 }
 
 .postContent {
