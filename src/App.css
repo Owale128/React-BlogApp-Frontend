@@ -21,13 +21,13 @@ body {
     animation: reload 0.8s ease-out;
 }
 
-.wrapper {
+.postWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.wrapper2 {
+.contentWrapper {
     margin-top: 4rem;
     border: 1px solid black;
     border-radius: 2rem;
@@ -39,23 +39,23 @@ body {
     background-color: white;  
 }
 
-.wrapper2:nth-child(odd) {
-    left: -320px;
+.contentWrapper:nth-child(odd) {
+left: -320px;
   }
   
-  .wrapper2:nth-child(even) {
+  .contentWrapper:nth-child(even) {
     top: -130px;
     right: -320px;
   }
 
 
-.wrapper2 input{
+.contentWrapper input{
     width: 12rem;
     margin: 0 auto;
     margin-top: 1.5rem;
 }
 
-.wrapper2 textarea {
+.contentWrapper textarea {
     max-width: 29rem;
 }
 
@@ -167,7 +167,7 @@ h1 {
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
 }
 
-.postTitle {
+.contentTitle {
     font-size: 1.5rem;
     text-decoration: underline;
     word-wrap: break-word;
@@ -175,7 +175,7 @@ h1 {
     
 }
 
-.postContent {
+.contentText {
     font-size: 1.3em;
     margin: 2.3em 0;
     word-wrap: break-word;
@@ -231,3 +231,11 @@ h1 {
 .nav-links a:hover {
     text-decoration: underline;
 }
+
+
+.separator {
+    width: 70vw;
+    border-top: 2px solid black;
+    margin: 1rem 0 5rem 0;
+  }
+  
