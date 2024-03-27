@@ -5,6 +5,7 @@ import handleUpdate from './components/UpdatePost';
 import handleDelete from './components/DeletePost';
 import fetchPosts from './components/FetchPosts';
 import './App.css'
+import Navbar from './navbar/Navbar';
 
 const BlogPosts = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -49,8 +50,10 @@ const BlogPosts = () => {
   };
 
 return (
+  <div>
+<Navbar />
   <div className='wrapper'>
-    <h1>Blog Posts</h1>
+    <h1>Write a post</h1>
     <form onSubmit={handleSubmitPost}>
     <div className='formContainer'>
       <input
@@ -94,7 +97,7 @@ return (
               placeholder="Enter title"
               value={editedPost.title}
               onChange={(e) => setEditedPost({ ...editedPost, title: e.target.value })}
-            />
+              />
             <br></br>
             <textarea
               className='textArea'
@@ -102,7 +105,7 @@ return (
               placeholder="Enter content"
               value={editedPost.content}
               onChange={(e) => setEditedPost({ ...editedPost, content: e.target.value })}
-            ></textarea>
+              ></textarea>
             {errorMessageEdit && <p className="errorEdit">{errorMessageEdit}</p>}
             <button className='backBtn' onClick={handleCancelEdit}>Back</button>
           </>
@@ -115,6 +118,7 @@ return (
       </div>
 
     ))}
+  </div>
   </div>
 );
 };
