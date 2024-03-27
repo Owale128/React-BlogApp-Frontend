@@ -5,7 +5,7 @@ import handleUpdate from './components/UpdatePost';
 import handleDelete from './components/DeletePost';
 import fetchPosts from './components/FetchPosts';
 import Navbar from './navbar/Navbar';
-import './App.css'
+import './sass/App.css'
 
 const BlogPosts = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -57,10 +57,10 @@ return (
     <form onSubmit={handleSubmitPost}>
     <div className='formContainer'>
       <input
-      className='title'
-      type="text"
+      className='nameInput'
+      type="name"
       name="title"
-      placeholder="Enter title"
+      placeholder="Enter your name"
       value={newPost.title}
       onChange={handleInputChange}
       />
@@ -90,15 +90,6 @@ return (
       )}
     {editingPostId === post._id ? (
       <>
-        <input
-          className='title'
-          type="text"
-          name="title"
-          placeholder="Enter title"
-          value={editedPost.title}
-          onChange={(e) => setEditedPost({ ...editedPost, title: e.target.value })}
-          />
-        <br></br>
         <textarea
           className='textArea'
           name="content"
