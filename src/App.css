@@ -1,241 +1,205 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @keyframes reload {
-    0% {
-        opacity: 0; 
-        transform: scale(0.8); 
-    }
-    100% {
-        opacity: 1; 
-        transform: scale(1); 
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
-
-
 body {
-    margin-bottom: 4rem;
-    animation: reload 0.8s ease-out;
+  margin-bottom: 4rem;
+  animation: reload 0.8s ease-out;
+  background-color: rgba(158, 217, 241, 0.7254901961);
 }
 
 .postWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.contentWrapper {
-    margin-top: 4rem;
-    border: 1px solid black;
-    border-radius: 2rem;
-    padding: 2rem;
-    position: relative;
-    max-width: 33rem;
-    min-width: 23rem;
-    text-align: center;
-    background-color: white;  
-}
-
-.contentWrapper:nth-child(odd) {
-left: -320px;
-  }
-  
-  .contentWrapper:nth-child(even) {
-    top: -130px;
-    right: -320px;
-  }
-
-
-.contentWrapper input{
-    width: 12rem;
-    margin: 0 auto;
-    margin-top: 1.5rem;
-}
-
-.contentWrapper textarea {
-    max-width: 29rem;
+.postWrapper h1 {
+  margin: 4rem 0 2rem 0;
+  font-size: 3rem;
 }
 
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.formContainer .addBtn {
+  border-radius: 2rem;
+  padding: 0.3rem 1rem;
+  background-color: #007bff;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.formContainer .addBtn:hover {
+  background-color: rgb(65, 185, 65);
+  color: white;
 }
 
-
-h1 {
-    margin: 4rem 0 2rem 0;
-    font-size: 3rem;
-    
+.separator {
+  width: 70vw;
+  border-top: 2px solid black;
+  margin: 1rem 0 5rem 0;
 }
 
 .title, .textArea {
-    display: block;
-    text-align: center;
-    font-size: 1.2rem;
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .textArea {
-    height: 15rem;
-    width: 20rem;
-    border-radius: 2rem;
-    margin-bottom: 0.6rem;
-    padding: 0.6rem;
+  width: 20rem;
+  height: 15rem;
+  padding: 0.6rem;
+  max-width: 29rem;
+  border-radius: 2rem;
+  margin-bottom: 0.6rem;
 }
 
-.addBtn {
-    border-radius: 2rem;
-    padding: 0.3rem 1rem; 
-    background-color: #007bff; 
-    font-size: 1.1rem;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease; 
+.contentWrapper {
+  padding: 2rem;
+  margin-top: 4rem;
+  max-width: 33rem;
+  min-width: 23rem;
+  position: relative;
+  text-align: center;
+  border-radius: 2rem;
+  border: 1px solid black;
+  background-color: white;
+}
+.contentWrapper input {
+  width: 12rem;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+.contentWrapper .editBtn {
+  top: 0;
+  left: 0;
+  color: blue;
+  margin: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  transition: 0.3s ease;
+}
+.contentWrapper .editBtn:hover {
+  font-weight: bolder;
+  color: rgb(21, 21, 177);
+}
+.contentWrapper .updateBtn {
+  top: 0;
+  left: 0;
+  color: blue;
+  margin: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  transition: 0.3s ease;
+}
+.contentWrapper .updateBtn:hover {
+  font-weight: bolder;
+  color: rgb(9, 9, 129);
+}
+.contentWrapper .deleteBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  transition: 0.3s ease;
+}
+.contentWrapper .deleteBtn:hover {
+  font-weight: bolder;
+  color: rgb(255, 0, 0);
+}
+.contentWrapper .backBtn {
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 1.5rem;
+  transition: 0.3s ease;
+}
+.contentWrapper .backBtn:hover {
+  font-weight: bolder;
+  background-color: rgb(212, 208, 208);
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+}
+.contentWrapper .contentTitle {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  word-wrap: break-word;
+  margin-top: 1.5rem;
+}
+.contentWrapper .contentText {
+  font-size: 1.3em;
+  margin: 2.3em 0;
+  word-wrap: break-word;
+}
+.contentWrapper .errorEdit {
+  margin-bottom: 1rem;
 }
 
-.addBtn:hover {
-    background-color: rgb(65, 185, 65);
-    color: white;
+.contentWrapper:nth-child(odd) {
+  left: -320px;
 }
 
-.editBtn {
-    top: 0;
-    left: 0;
-    color: blue;
-    margin: 1rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    position: absolute;
-    transition:  0.3s ease;
+.contentWrapper:nth-child(even) {
+  top: -130px;
+  right: -320px;
 }
 
-.editBtn:hover {
-    font-weight: bolder;
-    color: rgb(21, 21, 177);
+.error, .errorEdit {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.updateBtn {
-    top: 0;
-    left: 0;
-    color: blue;
-    margin: 1rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    position: absolute;
-    transition:  0.3s ease; 
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
-.updateBtn:hover {
-    font-weight: bolder;
-    color: rgb(9, 9, 129);
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
-.deleteBtn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 1rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: red;
-    transition:  0.3s ease; 
+.navbar .container .logo {
+  margin: 0 0 0 2rem;
+  font-size: 2rem;
 }
-
-.deleteBtn:hover {
-    font-weight: bolder;
-    color: rgb(255, 0, 0);
+.navbar .container .nav-links li {
+  display: inline;
+  margin-right: 2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
-
-.backBtn {
-    padding: 0.5rem;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 1.5rem;
-    transition:  0.3s ease; 
+.navbar .container .nav-links li a {
+  color: #fff;
+  text-decoration: none;
 }
-
-.backBtn:hover {
-    font-weight: bolder;
-    background-color: rgb(212, 208, 208);
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
-}
-
-.contentTitle {
-    font-size: 1.5rem;
-    text-decoration: underline;
-    word-wrap: break-word;
-    margin-top: 1.5rem;
-    
-}
-
-.contentText {
-    font-size: 1.3em;
-    margin: 2.3em 0;
-    word-wrap: break-word;
-}
-
-.error {
-    color: red;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  
-.errorEdit {
-    color: red;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    margin: 0 0 0 2rem;
-    font-size: 3rem;
-    
-}
-
-.nav-links li {
-    display: inline;
-    margin-right: 2rem;
-    font-size: 1.3rem;
-    
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-   
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
-
-
-.separator {
-    width: 70vw;
-    border-top: 2px solid black;
-    margin: 1rem 0 5rem 0;
-  }
-  
+.navbar .container .nav-links li a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=App.css.map */

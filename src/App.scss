@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes reload {
+    0% {
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    100% {
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+
+body {
+    margin-bottom: 4rem;
+    animation: reload 0.8s ease-out;
+    background-color: #9ed9f1b9;
+}
+
+.postWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin: 4rem 0 2rem 0;
+        font-size: 3rem; 
+    }
+}
+
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .addBtn {
+        border-radius: 2rem;
+        padding: 0.3rem 1rem; 
+        background-color: #007bff; 
+        font-size: 1.1rem;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease; 
+    }
+    
+    .addBtn:hover {
+        background-color: rgb(65, 185, 65);
+        color: white;
+    }
+    
+}
+
+.separator {
+    width: 70vw;
+    border-top: 2px solid black;
+    margin: 1rem 0 5rem 0;
+  }
+
+.title, .textArea {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.textArea {
+    width: 20rem;
+    height: 15rem;
+    padding: 0.6rem;
+    max-width: 29rem;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+
+.contentWrapper {
+    padding: 2rem;
+    margin-top: 4rem;
+    max-width: 33rem;
+    min-width: 23rem;
+    position: relative;
+    text-align: center;
+    border-radius: 2rem;
+    border: 1px solid black;
+    background-color: white;  
+
+    input{
+        width: 12rem;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+    }
+
+    .editBtn {
+    top: 0;
+    left: 0;
+    color: blue;
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    transition:  0.3s ease;
+    }
+
+    .editBtn:hover {
+    font-weight: bolder;
+    color: rgb(21, 21, 177);
+    }
+
+    .updateBtn {
+    top: 0;
+    left: 0;
+    color: blue;
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    transition:  0.3s ease; 
+    }
+
+    .updateBtn:hover {
+    font-weight: bolder;
+    color: rgb(9, 9, 129);
+    }
+
+    .deleteBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: red;
+    transition:  0.3s ease; 
+    }
+
+    .deleteBtn:hover {
+    font-weight: bolder;
+    color: rgb(255, 0, 0);
+    }
+
+    .backBtn {
+    padding: 0.5rem;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    transition:  0.3s ease; 
+    }
+
+    .backBtn:hover {
+    font-weight: bolder;
+    background-color: rgb(212, 208, 208);
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+    }
+
+    .contentTitle {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    word-wrap: break-word;
+    margin-top: 1.5rem;
+
+    }
+
+    .contentText {
+    font-size: 1.3em;
+    margin: 2.3em 0;
+    word-wrap: break-word;
+    }
+
+
+    .errorEdit {
+    margin-bottom: 1rem;
+    }
+
+}
+
+.contentWrapper:nth-child(odd):before {
+    content: "";
+    position: absolute;
+    border-left: 24px solid #fff;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #fff;
+    border-bottom: 20px solid transparent;
+    left: 32px;
+    bottom: -24px;
+
+  }
+  
+  .contentWrapper:nth-child(odd) {
+      left: -320px;
+        }
+
+.contentWrapper:nth-child(even):before {
+    content: "";
+    position: absolute;
+    border-left: 24px solid #fff;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #fff;
+    border-bottom: 20px solid transparent;
+    right: 32px;
+    bottom: -25px;
+    transform: rotate(80deg);
+}
+
+.contentWrapper:nth-child(even) {
+        top: -130px;
+        right: -320px;
+    }
+
+
+.error, .errorEdit  {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+.navbar {
+background-color: #333;
+color: #fff;
+padding: 1rem;
+position: sticky;
+top: 0;
+z-index: 1000;
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+    margin: 0 0 0 2rem;
+    font-size: 2rem;
+    }
+
+    .nav-links li {
+    display: inline;
+    margin-right: 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+        text-decoration: underline;
+        }
+    }
+    }
+}
+}
+
+
+  
