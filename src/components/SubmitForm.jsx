@@ -1,4 +1,4 @@
-const handleSubmit = async (newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, pingSound) => {
+const handleSubmit = async (newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, postSound) => {
     if (newPost.title.trim() === '' || newPost.content.trim() === '') {
       setErrorMessage('Title and content cannot be empty');
       return;
@@ -25,7 +25,8 @@ const handleSubmit = async (newPost, setBlogPosts, blogPosts, setNewPost, setErr
         if (newPostRef.current) {
           newPostRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-        const audio = new Audio(pingSound);
+        const audio = new Audio(postSound);
+        audio.volume = 0.2;
         audio.play();
       }, 100);
 

@@ -1,4 +1,4 @@
-const handleDelete = async (id, setBlogPosts, blogPosts) => {
+const handleDelete = async (id, setBlogPosts, blogPosts, deleteSound) => {
     try {
       const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
         method: 'DELETE',
@@ -8,6 +8,11 @@ const handleDelete = async (id, setBlogPosts, blogPosts) => {
       }
       
       setBlogPosts(blogPosts.filter(post => post._id !== id));
+
+      const audio = new Audio(deleteSound);
+      audio.volume = 0.2;
+      audio.play();
+
     } catch (error) {
       console.error('Error deleting blog post:', error);
     }

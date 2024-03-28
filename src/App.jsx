@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import pingSound from '../src/soundEffect/tapSound.mp3';
+import updateSound from '../src/soundEffect/updateSound.mp3';
+import postSound from '../src/soundEffect/postSound.mp3';
+import deleteSound from '../src/soundEffect/deleteSound.mp3';
 import handleSubmit from './components/SubmitForm';
 import handleUpdate from './components/UpdatePost';
 import handleDelete from './components/DeletePost';
@@ -28,11 +30,11 @@ const BlogPosts = () => {
 
   const handleSubmitPost = (e) => {
     e.preventDefault();
-    handleSubmit(newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, pingSound);
+    handleSubmit(newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, postSound);
   };
 
   const handleUpdatePost = (id) => {
-    handleUpdate(id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit);
+    handleUpdate(id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit, updateSound);
   };
 
   const handleEdit = async (id, title, content) => {
@@ -47,7 +49,7 @@ const BlogPosts = () => {
   };
 
   const handleDeletePost = (id) => {
-    handleDelete(id, setBlogPosts, blogPosts);
+    handleDelete(id, setBlogPosts, blogPosts, deleteSound);
   };
 
 return (
@@ -84,11 +86,11 @@ return (
     <span className='deleteBtn' onClick={() => handleDeletePost(post._id)}>Delete</span>
     {editingPostId === post._id ? (
       <>
-        <span className='updateBtn' onClick={() => handleUpdatePost(post._id)}>Update</span>
+      <span className='backBtn' onClick={handleCancelEdit}>Back</span>
       </>
     ) : (
       <span className='editBtn' onClick={() => handleEdit(post._id, post.title, post.content)}>Edit</span>
-      )}
+      ) }
     {editingPostId === post._id ? (
       <>
         <textarea
@@ -99,7 +101,7 @@ return (
           onChange={(e) => setEditedPost({ ...editedPost, content: e.target.value })}
           maxLength={200}/>
         {errorMessageEdit && <p className="errorEdit">{errorMessageEdit}</p>}
-        <button className='backBtn' onClick={handleCancelEdit}>Back</button>
+        <button className='updateBtn' onClick={() => handleUpdatePost(post._id)}>Update</button>
       </>
     ) : (
       <>

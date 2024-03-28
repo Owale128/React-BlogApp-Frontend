@@ -1,4 +1,4 @@
-const handleUpdate = async (id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit) => {
+const handleUpdate = async (id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit, updateSound) => {
     if (editedPost.title.trim() === '' || editedPost.content.trim() === '') {
       setErrorMessageEdit('Title and content cannot be empty');
       return;
@@ -20,6 +20,11 @@ const handleUpdate = async (id, editedPost, setBlogPosts, blogPosts, setEditingP
       setBlogPosts(blogPosts.map(post => post._id === id ? updatedPost : post));
       setEditingPostId(null);
       setErrorMessageEdit('');
+
+        const audio = new Audio(updateSound);
+        audio.volume = 0.2;
+        audio.play();
+
     } catch (error) {
       console.error('Error updating blog post:', error);
     }
