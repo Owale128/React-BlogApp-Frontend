@@ -5,6 +5,7 @@ import handleUpdate from './components/UpdatePost';
 import handleDelete from './components/DeletePost';
 import fetchPosts from './components/FetchPosts';
 import Navbar from './navbar/Navbar';
+import Footer from './footer/Footer';
 import './sass/App.css'
 
 const BlogPosts = () => {
@@ -57,13 +58,12 @@ return (
     <form onSubmit={handleSubmitPost}>
     <div className='formContainer'>
       <input
-      className='nameInput'
       type="name"
       name="title"
       placeholder="Enter your name"
       value={newPost.title}
       onChange={handleInputChange}
-      />
+      maxLength={15}/>
       <br></br>
       <textarea
       className='textArea'
@@ -71,16 +71,17 @@ return (
       placeholder="Enter content"
       value={newPost.content}
       onChange={handleInputChange}
-      ></textarea>
+      maxLength={200}/>
       <button type="submit" className='addBtn'>Add Post</button>
       </div>
     {errorMessage && <p className="error">{errorMessage}</p>}
       <br></br>
     <hr className="separator"/>
     </form>
+
     {blogPosts.map((post, i ) => (
       <div key={i} className='contentWrapper' ref={i === blogPosts.length - 1 ? newPostRef : null}>
-<span className='deleteBtn' onClick={() => handleDeletePost(post._id)}>Delete</span>
+    <span className='deleteBtn' onClick={() => handleDeletePost(post._id)}>Delete</span>
     {editingPostId === post._id ? (
       <>
         <span className='updateBtn' onClick={() => handleUpdatePost(post._id)}>Update</span>
@@ -96,19 +97,19 @@ return (
           placeholder="Enter content"
           value={editedPost.content}
           onChange={(e) => setEditedPost({ ...editedPost, content: e.target.value })}
-          ></textarea>
+          maxLength={200}/>
         {errorMessageEdit && <p className="errorEdit">{errorMessageEdit}</p>}
         <button className='backBtn' onClick={handleCancelEdit}>Back</button>
       </>
     ) : (
       <>
-          <h4 className='contentTitle'>{post.title}</h4>
-          <p className='contentText'>{post.content}</p>
+          <h4>{post.title}</h4>
+          <p className='blogText'>{post.content}</p>
         </>
       )}
     </div>
-
     ))}
+  <Footer />
   </div>
   </>
 );

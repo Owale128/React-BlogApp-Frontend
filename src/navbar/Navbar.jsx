@@ -11,8 +11,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="container">
-        <h2 className="logo">Christians blog</h2>
+      <div className="navContainer">
+        <h2 className="navLogo">Christians blog</h2>
         <ul className="nav-links">
          <li><a onClick={scrollToTop}>Back to top</a></li>
         </ul>
