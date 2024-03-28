@@ -21,39 +21,39 @@ body {
 }
 
 .navbar {
-background-color: #333;
-color: #fff;
-padding: 0.5rem;
-position: sticky;
-top: 0;
-z-index: 1000;
-
-.navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
     .navLogo {
-    margin: 0 0 0 2rem;
-    font-size: 2rem;
+        margin: 0 0 0 2rem;
+        font-size: 2rem;
     }
+    
+    .navContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .nav-links li {
+            display: inline;
+            margin-right: 2rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            
+            a {
+                color: #fff;
+                text-decoration: none;
 
-    .nav-links li {
-    display: inline;
-    margin-right: 2rem;
-    font-size: 1.3rem;
-    cursor: pointer;
-
-    a {
-        color: #fff;
-        text-decoration: none;
-
-        &:hover {
-        text-decoration: underline;
-        }
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }  
     }
-    }
-}
 }
 
 .postWrapper {
@@ -67,16 +67,29 @@ z-index: 1000;
     }
 }
 
+input {
+    font-size: 1.3rem;
+}
+
 .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-
-    input {
+    
+    .formTextArea {
+        display: block;
+        max-width: 16rem;
+        min-width: 12rem;
+        max-height: 14rem;
+        min-height: 12rem;
         font-size: 1.3rem;
+        border-radius: 2rem;
+        margin-bottom: 0.6rem;
+        padding: 1rem;
+        text-align: center;
     }
-
+    
     .addBtn {
         border-radius: 2rem;
         padding: 0.3rem 1rem; 
@@ -86,11 +99,11 @@ z-index: 1000;
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease; 
-    }
-    
-    .addBtn:hover {
-        background-color: rgb(65, 185, 65);
-        color: white;
+        
+        &:hover {
+            background-color: rgb(65, 185, 65);
+            color: white;
+        }
     }
 }
 
@@ -98,66 +111,61 @@ z-index: 1000;
     width: 70vw;
     border-top: 2px solid black;
     margin: 1rem 0 5rem 0;
-  }
+}
 
-  input, .textArea {
+input, .textArea {
     text-align: center;
-  }
+}
 
-.textArea {
+.contentTextArea {
     display: block;
-    width: 20rem;
-    height: 15rem;
-    padding: 1.3rem;
-    max-width: 24rem;
+    max-width: 20rem;
     min-width: 15rem;
     max-height: 20rem;
     min-height: 15rem;
     margin-top: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     border-radius: 2rem;
     margin-bottom: 0.6rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 .contentWrapper {
     padding: 2rem;
-    margin-top: 4rem;
-    max-width: 30rem;
-    min-width: 20rem;
     position: relative;
     text-align: center;
     border-radius: 2rem;
     border: 1px solid black;
     background-color: white;  
     
-    h4 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: underline;
-    word-wrap: break-word;
-    margin-top: 1.5rem;
-    font-size: 1.4rem;
-    }
-
     .blogText {
-    font-size: 1.3em;
-    margin: 2rem 0;
-    word-wrap: break-word;
+        font-size: 1.3em;
+        margin: 2rem 0;
+        word-wrap: break-word;
     }
     
-    .editBtn {
-    top: 0;
-    left: 0;
-    color: blue;
-    margin: 1rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    position: absolute;
-    transition:  0.3s ease;
+    h4 {
+        text-decoration: underline;
+        word-wrap: break-word;
+        margin-top: 1rem;
+        font-size: 1.3rem;
     }
 
-    .editBtn:hover {
-    font-weight: bolder;
-    color: rgb(21, 21, 177);
+    .editBtn {
+        top: 0;
+        left: 0;
+        color: blue;
+        margin: 1rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+        position: absolute;
+        transition:  0.3s ease;
+        
+        &:hover {
+            font-weight: bolder;
+            color: rgb(21, 21, 177);
+        }
     }
 
     .updateBtn {
@@ -168,13 +176,13 @@ z-index: 1000;
         border-radius: 1.5rem;
         transition:  0.3s ease; 
         color: green;
-    }
-
-    .updateBtn:hover {
-        font-weight: bolder;
-        background-color: rgb(212, 208, 208);
-        box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+        
+        &:hover {
+            font-weight: bolder;
+            background-color: rgb(212, 208, 208);
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
         }
+    }
     
     .deleteBtn {
         position: absolute;
@@ -185,11 +193,11 @@ z-index: 1000;
         font-size: 1.2rem;
         color: red;
         transition:  0.3s ease; 
-    }
-    
-    .deleteBtn:hover {
-        font-weight: bolder;
-        color: rgb(255, 0, 0);
+        
+        &:hover {
+            font-weight: bolder;
+            color: rgb(255, 0, 0);
+        }
     }
     
     .backBtn {
@@ -202,16 +210,19 @@ z-index: 1000;
         position: absolute;
         transition:  0.3s ease; 
         
+        &:hover {
+            font-weight: bolder;
+            color: rgb(9, 9, 129);
+        }
     }
 
-    .backBtn:hover {
-        font-weight: bolder;
-        color: rgb(9, 9, 129);
+    .postDate {
+        margin-bottom: -1rem;
+        color: rgba(0, 0, 0, 0.7);
     }
-
 
     .errorEdit {
-    margin-bottom: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -219,7 +230,7 @@ z-index: 1000;
     color: red;
     font-size: 1.2rem;
     text-align: center;
-  }
+}
 
 .contentWrapper:nth-child(odd):before {
     content: "";
@@ -230,11 +241,11 @@ z-index: 1000;
     border-bottom: 20px solid transparent;
     left: 32px;
     bottom: -24px;
-  }
-  
-  .contentWrapper:nth-child(odd) {
-      left: -320px;
-        }
+}
+
+.contentWrapper:nth-child(odd) {
+    left: -320px;
+}
 
 .contentWrapper:nth-child(even):before {
     content: "";
@@ -249,9 +260,9 @@ z-index: 1000;
 }
 
 .contentWrapper:nth-child(even) {
-        top: -130px;
-        right: -320px;
-    }
+    top: -130px;
+    right: -320px;
+}
 
 .footer {
     margin-top: 10rem;
@@ -260,5 +271,108 @@ z-index: 1000;
     color: #fff;
     text-align: center;
     background-color: #333;
-  }
-  
+}
+
+@media screen and (min-width: 390px) {
+
+    .postWrapper > .h1 {
+        margin-top: 3.5rem;
+        font-size: 2.8rem;
+    }
+
+    .input {
+        font-size: 1.1rem;
+    }
+
+    .contentWrapper {
+        margin-top: 4rem;
+        max-width: 18rem;
+        min-width: 6rem;
+    }
+
+    .contentTextArea {
+        max-width: 14rem;
+        min-width: 12rem;
+        max-height: 13rem;
+        min-height: 10rem;
+    }
+
+    .contentWrapper:nth-child(odd) {
+        left: -30px;
+        margin-bottom: 3rem;
+    }
+
+    .contentWrapper:nth-child(even) {
+        top: -1px;
+        right: -30px;
+    }
+
+    .navbar > .navContainer > .navLogo {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .contentWrapper {
+        max-width: 26rem;
+    }
+
+    .contentTextArea {
+        max-width: 18rem;
+        min-width: 14rem;
+    }
+
+    .contentWrapper:nth-child(odd) {
+        left: -150px;
+    }
+
+    .contentWrapper:nth-child(even) {
+        top: -10px;
+        right: -160px;
+    }
+
+    .formTextArea {
+        max-width: 26rem;
+        min-width: 22rem;
+        max-height: 16rem;
+        min-height: 14rem;
+    }
+
+    .navbar > .navContainer > .navLogo {
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+    .contentWrapper {
+        max-width: 30rem;
+    }
+
+    .contentTextArea {
+        padding: 1.3rem;
+        max-width: 24rem;
+        min-width: 20rem;
+        max-height: 15rem;
+        min-height: 10rem;
+    }
+
+    .contentWrapper:nth-child(odd) {
+        left: -350px;
+    }
+
+    .contentWrapper:nth-child(even) {
+        top: -10px;
+        right: -360px;
+    }
+
+    .formTextArea {
+        max-width: 26rem;
+        min-width: 22rem;
+        max-height: 20rem;
+        min-height: 16rem;
+    }
+}

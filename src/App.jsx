@@ -30,11 +30,21 @@ const BlogPosts = () => {
 
   const handleSubmitPost = (e) => {
     e.preventDefault();
-    handleSubmit(newPost, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, postSound);
+
+    const currentDate = new Date(); 
+    const formattedDate = `${currentDate.toLocaleDateString()} ${currentDate.toLocaleTimeString()}`; 
+    const postWithDate = { ...newPost, date: formattedDate }; 
+
+    handleSubmit(postWithDate, setBlogPosts, blogPosts, setNewPost, setErrorMessage, newPostRef, postSound);
   };
 
   const handleUpdatePost = (id) => {
-    handleUpdate(id, editedPost, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit, updateSound);
+
+    const currentDate = new Date(); 
+    const formattedDate = `${currentDate.toLocaleDateString()} ${currentDate.toLocaleTimeString()}`; 
+    const editedPostWithDate = { ...editedPost, date: formattedDate };
+
+    handleUpdate(id, editedPostWithDate, setBlogPosts, blogPosts, setEditingPostId, setErrorMessageEdit, updateSound);
   };
 
   const handleEdit = async (id, title, content) => {
@@ -56,10 +66,11 @@ return (
   <>
 <Navbar />
   <div className='postWrapper'>
-    <h1>Write a post</h1>
+    <h1 className='h1'>Write a post</h1>
     <form onSubmit={handleSubmitPost}>
     <div className='formContainer'>
       <input
+      className='input'
       type="name"
       name="title"
       placeholder="Enter your name"
@@ -68,7 +79,7 @@ return (
       maxLength={15}/>
       <br></br>
       <textarea
-      className='textArea'
+      className='formTextArea'
       name="content"
       placeholder="Enter content"
       value={newPost.content}
@@ -94,7 +105,7 @@ return (
     {editingPostId === post._id ? (
       <>
         <textarea
-          className='textArea'
+          className='contentTextArea'
           name="content"
           placeholder="Enter content"
           value={editedPost.content}
@@ -107,6 +118,7 @@ return (
       <>
           <h4>{post.title}</h4>
           <p className='blogText'>{post.content}</p>
+      <p className='postDate'>Posted on: {post.date}</p>
         </>
       )}
     </div>
