@@ -16,7 +16,9 @@
 }
 body {
   animation: reload 0.8s ease-out;
-  background-color: rgba(158, 217, 241, 0.7254901961);
+  background: linear-gradient(to bottom, #4CAF50, #87CEEB, #FFFFCC);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar {
