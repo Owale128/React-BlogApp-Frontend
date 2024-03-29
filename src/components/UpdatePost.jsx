@@ -5,7 +5,7 @@ const handleUpdate = async (id, editedPost, setBlogPosts, blogPosts, setEditingP
     }
   
     try {
-      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
+      const response = await fetch(`https://newreactblogsitebackend.herokuapp.com/api/blogPost/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

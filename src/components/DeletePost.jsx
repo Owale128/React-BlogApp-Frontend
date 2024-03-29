@@ -1,6 +1,6 @@
 const handleDelete = async (id, setBlogPosts, blogPosts, deleteSound) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/blogPost/${id}`, {
+      const response = await fetch(`https://newreactblogsitebackend.herokuapp.com/api/blogPost/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
