@@ -16,7 +16,7 @@
 }
 body {
   animation: reload 0.8s ease-out;
-  background: linear-gradient(to bottom, #4CAF50, #87CEEB, #FFFFCC);
+  background: linear-gradient(to bottom right, #4CAF50, #87CEEB, #FFFFCC);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

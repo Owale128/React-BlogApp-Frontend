@@ -5,7 +5,7 @@ const handleSubmit = async (newPost, setBlogPosts, blogPosts, setNewPost, setErr
     }
   
     try {
-      const response = await fetch('https://newreactblogsitebackend.herokuapp.com/api/blogPost', {
+      const response = await fetch('https://newreactblogsitebackend-c5c3725b349e.herokuapp.com//api/blogPost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
