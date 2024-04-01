@@ -1,6 +1,6 @@
 const fetchBlogPosts = async (setBlogPosts) => {
     try {
-      const response = await fetch('https://newreactblogsitebackend-c5c3725b349e.herokuapp.com/api/blogPosts');
+      const response = await fetch('https://newreactblogsitebackend-c5c3725b349e.herokuapp.com/');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
