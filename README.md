@@ -7,5 +7,9 @@ You can visit the page at: https://christiansblogsite.netlify.app/
 
 ![BlogPic](https://github.com/user-attachments/assets/29869fe2-07b0-4c86-8a69-6ec70f1785ec)
 
+# Stack: 
+[![My Skills](https://skillicons.dev/icons?i=html,react,ts,sass)](https://skillicons.dev)
+
+# 
 Link to my backend repo:
 https://github.com/Owale128/React-BlogApp-Backend
