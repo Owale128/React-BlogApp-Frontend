@@ -5,7 +5,7 @@ My project is a blogging platform that I've built using React. I've created vari
 
 You can visit the page at: https://christiansblogsite.netlify.app/
 
-![React-Blog-Frontend](https://github.com/Owale128/React-BlogApp-Frontend/assets/110387474/09bf7e29-f876-49a7-9828-fcba2fa882ed)
+![BlogPic](https://github.com/user-attachments/assets/29869fe2-07b0-4c86-8a69-6ec70f1785ec)
 
 Link to my backend repo:
 https://github.com/Owale128/React-BlogApp-Backend
